@@ -207,9 +207,9 @@ lint:
 	if [ -n "$$bad_funcs" ]; then \
 		echo "WARNING: Functions should use PascalCase:"; \
 		echo "$$bad_funcs" | head -3; \
-	else \
-		echo "  ✓ Function names are PascalCase"; \
-	fi
+		exit 1; \
+	fi; \
+	echo "  ✓ Function names are PascalCase"
 	@echo ""
 	@echo "Checking file structure..."
 	@required_files="main.brs ApiClient.brs Storage.brs AuthManager.brs SessionManager.brs LibraryManager.brs"; \
